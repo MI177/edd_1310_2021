@@ -7,26 +7,39 @@ class CircularList:
     def __init__(self):
         self.__head=None
         self.__tail=None
-        self.__size=0
         
     def is_empty(self):
-        return self.__size==0
+        return self.__head==None
 
     def insert(self, value):
         nuevo=Nodo(value)
-        if (self.__head==None):
+        if self.is_empty():
             self.__head=nuevo
-            curr_node=self.__tail
-                
+            self.__tail=nuevo
+            self.__tail.next=self.__head
         else:
-            curr_node=self.__head
-            while curr_node.next!=None:
-                curr_node=curr_node.next
-            curr_node.next=nuevo#pendiente
+            curr_node=nuevo
+            curr_node.next=self.__head
+            self.__head=curr_node
+            self.__tail.next=self.__head
 
     def transversal(self):
         curr_node=self.__head
-        while curr_node.next != None:
+        while curr_node.next != self.__head:
             print(f" {curr_node.data} -->", end="")
             curr_node=curr_node.next
-        print("")
+            #if curr_node==self.__head:
+                #break
+
+    #def search
+    def remove(self, value):
+        if self.is_empty():
+            print("La lista se encuentra actualemnte vacia")
+        else:
+            if self.__head==self.__tail:
+                self.__head=None
+                self.__tail=None
+            else:
+                self.__head=self.__head.next
+                self.__tail.next=self.__head
+
