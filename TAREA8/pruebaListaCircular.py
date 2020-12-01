@@ -15,4 +15,5 @@ lc.transversal()
 lc.remove(45)
 lc.transversal()
 
-
+#lc.searhc(45)
+#lc.searhc(30)
