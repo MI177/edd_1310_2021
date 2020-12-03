@@ -12,4 +12,16 @@ class LaberintoADT:
 
     def to_string(self):
         self.__laberinto.to_string
+    """
+    Establece la entrada 'E' en la matriz, verfica a ren y col
+    para establecer los limites
+    """
 
+    def set_entrada(self, ren, col):
+        self.__laberinto.set_item(ren, col, 'E')
+    """
+    Establece salida deentro de los limites perifericos de la matriz
+    """
+
+    def set_salida(self, ren, col):
+        self.__laberinto.set_item(ren, col, 'S')
